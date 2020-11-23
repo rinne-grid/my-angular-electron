@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../interfaces/hero';
+import { HEROES } from '../resources/mock-heroes';
+
+import { ipcRenderer } from 'electron';
+
+
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -11,9 +17,20 @@ export class HeroesComponent implements OnInit {
     id: 1,
     name: 'Windstorm'
   };
-  constructor() { }
+  heroes = HEROES;
+
+  selectedHero: Hero;
+  constructor() {}
 
   ngOnInit(): void {
+  }
+
+  onSelect(hero: Hero) {
+
+    this.selectedHero = hero;
+    ipcRenderer.invoke("hero-ui-click", hero).then(obj => {
+      console.log(obj);
+    });
   }
 
 }
