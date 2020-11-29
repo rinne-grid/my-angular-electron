@@ -9,6 +9,7 @@ import { AppConfig } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'Tour of Heroes';
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService

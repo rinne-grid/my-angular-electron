@@ -28,9 +28,9 @@ export class HeroesComponent implements OnInit {
   onSelect(hero: Hero) {
 
     this.selectedHero = hero;
-    ipcRenderer.invoke("hero-ui-click", hero).then(obj => {
-      console.log(obj);
-    });
+    // ipcRenderer.invoke("hero-ui-click", hero).then(obj => {
+      // console.log(obj);
+    // });
   }
 
 }
